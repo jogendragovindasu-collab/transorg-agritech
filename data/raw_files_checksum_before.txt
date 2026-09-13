@@ -1,0 +1,6 @@
+e692dc579f17b456ad0b1c332d8dfacc *data/raw/track3_dataset_notes.txt
+f4e9352c3a78f9082f4660a59cc7c54c *data/raw/track3_mandi_arrivals.csv
+7f56a74891297adee40717aa0eb72606 *data/raw/track3_mandi_master.csv
+05aa2d0373526a1ad9d817fb078ef249 *data/raw/track3_price_and_msp.json
+8091a0b7fe48bfe15bb42fad5a9e6c7d *data/raw/track3_transport_logistics.csv
+38219d0644b55ab9c02b32058177cba4 *data/raw/track3_weather_sensors.xlsx

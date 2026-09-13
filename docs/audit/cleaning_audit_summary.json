@@ -1,0 +1,46 @@
+{
+  "cleaning_timestamp": "2026-09-13T13:42:56.900805",
+  "datasets": [
+    {
+      "dataset": "track3_mandi_master",
+      "raw_rows": 60,
+      "cleaned_rows": 57,
+      "duplicates_removed": 3,
+      "missing_district": 4,
+      "missing_state": 4
+    },
+    {
+      "dataset": "track3_mandi_arrivals",
+      "raw_rows": 25750,
+      "cleaned_rows": 25000,
+      "duplicates_removed": 750,
+      "quantity_converted": 5004,
+      "negative_quantity": 1233,
+      "unit_unresolvable": 0
+    },
+    {
+      "dataset": "track3_price_and_msp",
+      "raw_rows": 12000,
+      "cleaned_rows": 12000,
+      "min_price_converted": 9576,
+      "missing_mandi_id": 1235
+    },
+    {
+      "dataset": "track3_transport_logistics",
+      "raw_rows": 10400,
+      "cleaned_rows": 10000,
+      "duplicates_removed": 400,
+      "distance_converted": 992,
+      "negative_transit": 539,
+      "distance_unresolvable": 0
+    },
+    {
+      "dataset": "track3_weather_sensors",
+      "raw_rows": 15000,
+      "cleaned_rows": 15000,
+      "temp_converted": 15000,
+      "rain_converted": 12691,
+      "negative_rainfall": 1518
+    }
+  ]
+}

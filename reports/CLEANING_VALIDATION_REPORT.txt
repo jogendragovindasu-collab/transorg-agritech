@@ -1,0 +1,114 @@
+================================================================================
+CLEANING VALIDATION REPORT
+TransOrg AgentIQ Datathon - Track 3: AgriTech
+================================================================================
+
+Generated: 2026-09-13 13:42:56
+
+Design Document: docs/CLEANING_DESIGN.md
+Implementation: scripts/run_cleaning.py
+
+DATASET SUMMARY
+--------------------------------------------------------------------------------
+
+track3_mandi_master:
+  Raw rows: 60
+  Cleaned rows: 57
+  Duplicates removed: 3
+  missing_district: 4
+  missing_state: 4
+
+track3_mandi_arrivals:
+  Raw rows: 25750
+  Cleaned rows: 25000
+  Duplicates removed: 750
+  quantity_converted: 5004
+  negative_quantity: 1233
+  unit_unresolvable: 0
+
+track3_price_and_msp:
+  Raw rows: 12000
+  Cleaned rows: 12000
+  min_price_converted: 9576
+  missing_mandi_id: 1235
+
+track3_transport_logistics:
+  Raw rows: 10400
+  Cleaned rows: 10000
+  Duplicates removed: 400
+  distance_converted: 992
+  negative_transit: 539
+  distance_unresolvable: 0
+
+track3_weather_sensors:
+  Raw rows: 15000
+  Cleaned rows: 15000
+  temp_converted: 15000
+  rain_converted: 12691
+  negative_rainfall: 1518
+
+
+VALIDATION CHECKS
+--------------------------------------------------------------------------------
+
+[PASS] Raw files exist
+  All raw files exist: True
+
+[PASS] Cleaned files created
+  All cleaned files created: True
+
+[FAIL] No negative quantities
+  Negative quantities removed: False
+
+[FAIL] No negative transit
+  Negative transit removed: False
+
+[FAIL] No negative rainfall
+  Negative rainfall removed: False
+
+[PASS] Mandi ID format
+  Standardized mandi IDs: 57
+
+[PASS] Mapping files created
+  Mapping files exist: True
+
+[PASS] Row counts reconcile
+  Row counts after duplicate removal: True
+
+
+KEY FINDINGS
+--------------------------------------------------------------------------------
+
+1. Total duplicates removed: 1153
+2. Negative quantities flagged: 1233
+3. Negative transit flagged: 539
+4. Negative rainfall flagged: 1518
+5. Crops requiring investigation: 5604
+6. Mandi IDs standardized: 0 / 57
+
+
+LIMITATIONS
+--------------------------------------------------------------------------------
+
+1. Weather-to-Mandi Mapping: UNSUPPORTED
+   No sensor_id -> district/mandi mapping exists in organizer data.
+   Weather analysis must use date-level aggregation only.
+   Mandi-level weather attribution cannot be performed.
+
+2. Unresolved Crop Variants: 13 crops flagged REQUIRES_INVESTIGATION
+   Domain expertise required for canonical mapping.
+
+3. Ambiguous Dates: Not silently interpreted
+   Dates like 01-07-2026 flagged as ambiguous; parsed = NaT without business rule.
+
+
+REPRODUCIBILITY
+--------------------------------------------------------------------------------
+
+To reproduce this cleaning:
+  python scripts/run_cleaning.py
+
+All mappings are version-controlled in docs/mappings/.
+All audit trails preserved in cleaned datasets and docs/audit/.
+
+================================================================================

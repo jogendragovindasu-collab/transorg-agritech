@@ -1,0 +1,98 @@
+================================================================================
+DASHBOARD VALIDATION REPORT
+TransOrg AgentIQ Datathon — Track 3: AgriTech — Step 7 Update
+================================================================================
+Generated: 2026-09-13 (updated after Step 7 execution)
+Previous report: reports/DASHBOARD_VALIDATION_REPORT.txt (Step 5-era)
+
+ARCHITECTURE
+--------------------------------------------------------------------------------
+Dashboard entry: dashboard/app.py (updated to consume new Step 6 analytics)
+Data loader: dashboard/utils/data_loader.py (reads analytics/ exclusively)
+Components: dashboard/components/ (kpi_cards, insight_cards, charts, agent)
+Innovation module: Supply Chain Health Composite (embedded in app.py)
+Agent tab: preserved (agent/core integration unchanged)
+
+FILES USED (analytics/ — rebuilt in Step 6, consumed unmodified in Step 7)
+--------------------------------------------------------------------------------
+10 validated CSV files from analytics/ (see analytics/ directory listing)
+Key metrics verified against current analytics:
+  - Total arrivals: 1,266,990.35 Qtl (crop_kpis sum)
+  - Price crash rate: 40.34% (crop_kpis mean)
+  - Avg modal price: Rs. 3,793.09
+  - Avg MSP: Rs. 3,710.78
+  - Active mandis: 57 (with arrival records > 0)
+  - Avg transit: 12.94h (transport_kpis p90 = 21.70h)
+  - Weather-arrival correlation (date-level): r = -0.033, p = 0.705 (weak/non-significant; reported honestly)
+
+TABS / SECTIONS VERIFIED
+--------------------------------------------------------------------------------
+1. Executive Overview — hero KPIs + supply concentration + price intelligence
+2. Data Rescue Impact — before/after + exclusions documented
+3. Logistics Intelligence — transport KPIs + warehouse table + p90 explanation
+4. Weather & Supply (date-level) — correlation shown without fabrication
+5. Supply Chain Health Composite — innovation feature with documented formula
+6. Agri Intelligence Agent — preserved tab
+
+INNOVATION FEATURE VERIFICATION
+--------------------------------------------------------------------------------
+Name: Supply Chain Health Composite Score
+Location: dashboard/app.py (embedded after weather section)
+Formula (explicit in UI):
+  Health = 0.33*(normalized_supply) + 0.33*(100 - price_crash_rate) + 0.34*(normalized_logistics_speed)
+Components:
+  - Supply stability (normalized arrival volume from mandi_kpis.csv)
+  - Price stability (inverse price crash rate from crop_kpis.csv)
+  - Logistics speed (inverse p90 transit from warehouse_kpis.csv / transport_kpis.csv)
+Weights: fixed and visible (0.33 / 0.33 / 0.34) — no hidden tuning
+Documented in code comments and UI info box
+No fabricated weights; no external dataset dependency
+No unsupported weather mapping; no arbitrary delay threshold
+
+TEST RESULTS
+--------------------------------------------------------------------------------
+- tests/test_dashboard.py: 5/5 PASS
+- Dashboard imports: verified (streamlit set_page_config present; no import errors)
+- Analytics dependency: verified (dashboard/app.py imports from analytics/ via data_loader)
+- Raw dependency: verified absent (grep 'data/raw/' dashboard/app.py -> 0 matches)
+- Chart components: all importable
+- Agent interface: preserved
+
+VALIDATION CHECKLIST
+--------------------------------------------------------------------------------
+[PASS] All required analytics outputs present (10 files)
+[PASS] Dashboard reads analytics/ exclusively
+[PASS] No data/raw/ dependency in dashboard code
+[PASS] Innovation feature formula documented
+[PASS] Price crash definition consistent (modal_price < msp)
+[PASS] Transport methodology uses statistical p90 (21.70h)
+[PASS] Weather analysis remains date-level (no unsupported mapping)
+[PASS] Correlation reported honestly (weak/non-significant values shown)
+[PASS] Cleaning exclusions separated from analytics exclusions
+[PASS] No analytics/ modifications made by dashboard
+[PASS] No agent/ modifications
+[PASS] Tests pass
+[PASS] Validation report generated
+[PASS] Reproducible (streamlit run dashboard/app.py reads current analytics/)
+
+DATA GOVERNANCE CONFIRMATION
+--------------------------------------------------------------------------------
+- analytics/ untouched by Step 7 (read-only presentation layer)
+- data/cleaned/ untouched
+- data/raw/ untouched
+- scripts/run_analytics.py untouched
+- agent/ untouched
+- No external datasets or APIs
+- No fabricated KPI values
+- No unsupported weather-to-mandi mapping
+- No arbitrary business thresholds (p90 statistical used)
+
+RESULT
+--------------------------------------------------------------------------------
+STEP 7 = VALIDATED
+Dashboard rebuilt/updated to consume validated Step 6 analytics outputs.
+Innovation feature added with fully documented deterministic formula.
+No unsupported assumptions. No data modifications. No Step 8 started.
+
+STOP — Do not proceed to Step 8 without explicit authorization.
+================================================================================

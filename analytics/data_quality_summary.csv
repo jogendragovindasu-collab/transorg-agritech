@@ -1,0 +1,5 @@
+dataset,total_records,valid_quantity,exclusion_reason,exclusion_count,exclusion_pct
+arrivals,25000,5004,unit_unresolvable or NaN,19996,79.984
+price,12000,6472,modal_price or msp unresolved/NaN,5528,46.06666666666667
+transport,10000,8455,negative_transit_flag or NaN,1545,15.45
+weather,15000,204,negative_rainfall_flag or NaN,14796,98.64

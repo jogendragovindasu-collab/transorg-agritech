@@ -1,0 +1,189 @@
+================================================================================
+ANALYTICS VALIDATION REPORT
+TransOrg AgentIQ Datathon - Track 3: AgriTech
+================================================================================
+
+Generated: 2026-09-13 13:55:36
+
+Design Document: docs/ANALYTICS_DESIGN.md
+Implementation: scripts/run_analytics.py
+
+CORE KPI SUMMARY
+--------------------------------------------------------------------------------
+
+Supply / Arrivals:
+  Total Arrivals: 1,266,990.35 quintals
+  Total Farmers: 1,645,954
+  Arrival Records: 25,000
+  Active Mandis: 57
+
+Price / MSP:
+  Avg Modal Price: Rs. 3,793.09
+  Avg MSP: Rs. 3,710.78
+  Avg Price Gap: Rs. 82.30
+  Avg Price Gap %: 2.17%
+  Price Crash Count: 2,611
+  Price Crash Rate: 40.34%
+
+Transport / Logistics:
+  Avg Transit: 12.94 hours
+  Median Transit: 13.00 hours
+  Avg Distance: 630.51 km
+  P90 Transit Threshold: 21.70 hours
+
+
+VALIDATION CHECKS
+--------------------------------------------------------------------------------
+
+[WARN] Arrival Reconciliation (Crop-level)
+  Crop sum: 989,883.61, Overall: 1,266,990.35, Diff: 277,106.74
+
+[PASS] Arrival Reconciliation (Mandi-level)
+  Mandi sum: 1,266,990.35, Overall: 1,266,990.35, Diff: 0.00
+
+[WARN] Crop Percentage Sum
+  Sum: 78.13% (expected: 100%)
+
+[PASS] No Negative: Total Arrivals
+  Value is valid (>=0)
+
+[PASS] No Negative: Avg Modal Price
+  Value is valid (>=0)
+
+[PASS] No Negative: Avg Transit Hours
+  Value is valid (>=0)
+
+[PASS] No Negative: Price Crash Count
+  Value is valid (>=0)
+
+[PASS] Price Crash Count Valid
+  Crash count: 2611, Total valid prices: 6472
+
+[PASS] Price Crash Rate Range
+  Rate: 40.34% (expected: 0-100%)
+
+[PASS] Unresolved Crops Excluded from Rankings
+  1,119 REQUIRES_INVESTIGATION records excluded
+
+[PASS] Weather-to-Mandi Limitation Documented
+  Date-level analysis only; no sensor-to-mandi mapping claimed
+
+
+ANALYTICS OUTPUTS GENERATED
+--------------------------------------------------------------------------------
+
+1. analytics/mandi_kpis.csv (57 mandis)
+2. analytics/crop_kpis.csv (6 canonical crops)
+3. analytics/daily_kpis.csv (252 days)
+4. analytics/price_msp_analysis.csv (6472 price records)
+5. analytics/transport_kpis.csv (overall summary)
+6. analytics/warehouse_kpis.csv (6 warehouses)
+7. analytics/weather_daily.csv (139 days)
+8. analytics/weather_arrival_analysis.csv (135 overlapping days)
+9. analytics/executive_insights.csv (10 insights)
+10. analytics/data_quality_summary.csv
+
+
+DATA QUALITY TRANSPARENCY
+--------------------------------------------------------------------------------
+
+Arrivals:
+  Total records: 25,000
+  Valid quantity records: 5,004
+  Excluded (unresolvable units): 19,996
+  Unresolved crops: 1,119
+
+Price:
+  Total records: 12,000
+  Valid price records: 6,472
+  Excluded (unresolved/NaN): 5,528
+
+Transport:
+  Total records: 10,000
+  Valid transit records: 8,455
+  Excluded (negative/NaN): 1,545
+
+Weather:
+  Total records: 15,000
+  Valid weather records: 204
+  Excluded (negative rainfall/NaN): 14,796
+
+
+KEY INSIGHTS
+--------------------------------------------------------------------------------
+
+1. [Supply] Top 5 mandis contribute 10.3% of total arrivals
+   Severity: Medium
+   Implication: Moderate concentration
+
+2. [Supply] Top 3 crops represent 46.8% of total arrivals
+   Severity: Medium
+   Implication: Moderate diversity
+
+3. [Price] Wheat has high arrivals but 41.6% below-MSP rate
+   Severity: High
+   Implication: Farmers likely receiving below-MSP prices for significant volume
+
+4. [Price] Cotton has high arrivals but 40.1% below-MSP rate
+   Severity: High
+   Implication: Farmers likely receiving below-MSP prices for significant volume
+
+5. [Price] Sugarcane has high arrivals but 39.0% below-MSP rate
+   Severity: High
+   Implication: Farmers likely receiving below-MSP prices for significant volume
+
+6. [Price] Tadipatri Mandi has high volume but 43.9% price crash rate
+   Severity: High
+   Implication: High-volume mandi with frequent below-MSP trading
+
+7. [Price] Jorhat Grain Market has high volume but 34.9% price crash rate
+   Severity: High
+   Implication: High-volume mandi with frequent below-MSP trading
+
+8. [Price] Chapra Grain Market has high volume but 37.6% price crash rate
+   Severity: High
+   Implication: High-volume mandi with frequent below-MSP trading
+
+9. [Weather] High-rainfall days (>48.9mm) associated with 3.0% lower arrivals
+   Severity: Low
+   Implication: Minimal weather-supply association
+
+10. [Data Quality] 0.0% of arrival records have unresolvable units
+   Severity: Informational
+   Implication: Significant portion of arrival data cannot be quantified
+
+
+LIMITATIONS
+--------------------------------------------------------------------------------
+
+1. Weather-to-Mandi Mapping: UNSUPPORTED
+   No sensor-to-mandi or sensor-to-district mapping exists.
+   All weather analysis is date-level aggregation only.
+   Correlations represent associations, not causal relationships.
+
+2. Unresolved Crop Variants: 13 crops flagged REQUIRES_INVESTIGATION
+   These represent 1,119 arrival records.
+   Excluded from primary crop rankings but counted separately.
+
+3. Unresolved Quantity Units
+   0 arrival records have unresolvable units.
+   Excluded from all quantity-based calculations.
+
+4. Transport Delay Definition
+   No business-defined delay threshold available.
+   Using statistical approach: 'long transit' = >21.70h (p90).
+
+5. Ambiguous Dates
+   Records with unparseable dates excluded from time-series analysis.
+
+
+REPRODUCIBILITY
+--------------------------------------------------------------------------------
+
+To reproduce this analytics layer:
+  python scripts/run_analytics.py
+
+All analytics outputs are version-controlled and reproducible.
+All exclusions and limitations are documented.
+
+================================================================================

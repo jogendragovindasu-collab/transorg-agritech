@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Data (keep raw data out of git if large)
+data/processed/*
+!data/processed/.gitkeep
+
+# Streamlit
+.streamlit/secrets.toml
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# DuckDB
+*.duckdb
+*.duckdb.wal
+
+# Misc
+*.log
+*.env
+
+# Development / profiling artifacts (temporary — excluded from public submission)
+PROFILING_VALIDATION_REPORT.txt
+RAW_DATA_PROFILING_REPORT.txt
+data_profiling_report.txt
+profile_data.py
+profile_data_utf8.py
+profile_final.py
+profile_output.txt
+stderr_capture.txt
+validation_pass.py

@@ -1,0 +1,21 @@
+category,arrival_id,qty_raw,unit_raw,crop_name,mandi_id
+A_explicit_unit_valid_quantity,ARR0012424,44.841,T,गेहूं,MANDI026
+A_explicit_unit_valid_quantity,ARR0008271,332.54,Qtl,Gehun,MANDI014
+A_explicit_unit_valid_quantity,ARR0013701,119.93,Q,Ganne,mandi_049
+A_explicit_unit_valid_quantity,ARR0010753,187.68,qtl,Kapas,MANDI-054
+A_explicit_unit_valid_quantity,ARR0003275,14.84,Quintals,Sarson,mandi029
+C_embedded_unit_empty_separate,ARR0022724,415.88 qtl,,Kanak,056
+C_embedded_unit_empty_separate,ARR0022123,393.67 qtl,,Sarso,MANDI045
+C_embedded_unit_empty_separate,ARR0018787,336.73 qtl,,paddy,mandi_044
+C_embedded_unit_empty_separate,ARR0021131,309.07 qtl,,corn,MANDI040
+C_embedded_unit_empty_separate,,431.25 qtl,,corn,mandi_031
+F_negative_quantity,ARR0012573,-107.13,KG,Maize,MANDI019
+F_negative_quantity,ARR0012098,-331.59,Qtl,Corn,mandi050
+F_negative_quantity,ARR0023854,-177.05,KG,sugarcane,MANDI007
+F_negative_quantity,ARR0008333,-357.18,KG,Wheat,mandi_054
+F_negative_quantity,ARR0002169,-54.89,KG,Dhaan,MANDI039
+OTHER,ARR0015292,"36,654.0 KG",,wheat,MANDI037
+OTHER,ARR0017190,"22,697.0 KG",,cotton,mandi_002
+OTHER,ARR0006030,"43,655.0 KG",,Cotton,mandi033
+OTHER,ARR0015481,"7,278.0 KG",,Corn,mandi_028
+OTHER,ARR0019272,"39,083.0 KG",,Sugarcane,MANDI030

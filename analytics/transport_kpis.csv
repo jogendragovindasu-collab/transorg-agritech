@@ -1,0 +1,2 @@
+metric,avg_transit_hours,median_transit_hours,avg_distance_km,total_trips,valid_transit_trips,valid_distance_trips,p90_transit_threshold
+overall,12.938734476641041,13.0,630.5088709677419,10000,8455,992,21.7

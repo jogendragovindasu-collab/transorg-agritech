@@ -1,0 +1,58 @@
+mandi_id,mandi_name,district,state,mandi_type,total_area_acres,mandi_id_raw,mandi_id_status,missing_district,missing_state,missing_mandi_type,missing_total_area,source_file,row_index_raw,is_duplicate
+MANDI001,Hyderabad Mandi,ludhiana,Punjab,Private,11.0,MANDI001,normalized,0,0,0,0,track3_mandi_master.csv,0,0
+MANDI006,Kochi Mandi,Amritsar,Punjab,Direct,34.0,MANDI006,normalized,0,0,0,0,track3_mandi_master.csv,1,0
+MANDI037,Jorhat Grain Market,Kurukshetra,Haryana,APMC,,MANDI037,normalized,0,0,0,1,track3_mandi_master.csv,2,0
+MANDI046,Baranagar Market,,Uttar Pradesh,Private,13.0,MANDI046,normalized,1,0,0,0,track3_mandi_master.csv,3,0
+MANDI014,Bathinda Grain Market,Patiala,Punjab,PRIVATE,25.0,MANDI014,normalized,0,0,0,0,track3_mandi_master.csv,4,0
+MANDI055,Chandigarh APMC,Bareilly,Uttar Pradesh,apmc,12.0,MANDI055,normalized,0,0,0,0,track3_mandi_master.csv,5,0
+MANDI034,Ludhiana Grain Market,Ambala,Haryana,,11.0,MANDI034,normalized,0,0,1,0,track3_mandi_master.csv,6,0
+MANDI049,Machilipatnam Mandi,Muzaffarnagar,Uttar Pradesh,Private,39.0,MANDI049,normalized,0,0,0,0,track3_mandi_master.csv,7,0
+MANDI013,Aurangabad Market,Patiala,Punjab,Private,25.0,MANDI013,normalized,0,0,0,0,track3_mandi_master.csv,8,0
+MANDI047,Orai Market,Muzaffarnagar,Uttar Pradesh,APMC,,MANDI047,normalized,0,0,0,1,track3_mandi_master.csv,10,0
+MANDI051,Gulbarga Market,Saharanpur,Uttar Pradesh,Private,11.0,MANDI051,normalized,0,0,0,0,track3_mandi_master.csv,11,0
+MANDI032,Chapra Grain Market,,Haryana,PRIVATE,20.0,MANDI032,normalized,1,0,0,0,track3_mandi_master.csv,12,0
+MANDI004,Khandwa Grain Market,Ludhiana,Punjab,APMC,15.0,MANDI004,normalized,0,0,0,0,track3_mandi_master.csv,13,0
+MANDI053,Panihati Market,Saharanpur,Uttar Pradesh,APMC,,MANDI053,normalized,0,0,0,1,track3_mandi_master.csv,14,0
+MANDI018,Jaunpur Mandi,MOGA,Punjab,,9.0,MANDI018,normalized,0,0,1,0,track3_mandi_master.csv,15,0
+MANDI009,Jamshedpur APMC,Jalandhar,Punjab,apmc,28.0,MANDI009,normalized,0,0,0,0,track3_mandi_master.csv,16,0
+MANDI007,Nashik Mandi,Amritsar,Punjab,PRIVATE,45.0,MANDI007,normalized,0,0,0,0,track3_mandi_master.csv,17,0
+MANDI041,Gurgaon Grain Market,FATEHABAD,Haryana,APMC,39.0,MANDI041,normalized,0,0,0,0,track3_mandi_master.csv,18,0
+MANDI005,Bhilwara Grain Market,Amritsar,Punjab,Direct,29.0,MANDI005,normalized,0,0,0,0,track3_mandi_master.csv,19,0
+MANDI044,Dehri Mandi,Agra,Uttar Pradesh,APMC,41.0,MANDI044,normalized,0,0,0,0,track3_mandi_master.csv,20,0
+MANDI020,Kadapa Mandi,Ferozepur,Punjab,Direct,26.0,MANDI020,normalized,0,0,0,0,track3_mandi_master.csv,21,0
+MANDI035,Guntakal Mandi,Ambala,Haryana,APMC,17.0,MANDI035,normalized,0,0,0,0,track3_mandi_master.csv,22,0
+MANDI026,Tadipatri Mandi,Hisar,Haryana,Private,35.0,MANDI026,normalized,0,0,0,0,track3_mandi_master.csv,24,0
+MANDI057,Gorakhpur APMC,Bareilly,,Direct,7.0,MANDI057,normalized,0,1,0,0,track3_mandi_master.csv,25,0
+MANDI016,Kulti APMC,Bathinda,Punjab,,42.0,MANDI016,normalized,0,0,1,0,track3_mandi_master.csv,26,0
+MANDI028,Machilipatnam APMC,Hisar,Haryana,,33.0,MANDI028,normalized,0,0,1,0,track3_mandi_master.csv,27,0
+MANDI010,Dhule APMC,Jalandhar,Punjab,Direct,48.0,MANDI010,normalized,0,0,0,0,track3_mandi_master.csv,28,0
+MANDI031,Nangloi Jat Mandi,Sirsa,Haryana,APMC,22.0,MANDI031,normalized,0,0,0,0,track3_mandi_master.csv,29,0
+MANDI027,Kochi APMC,Hisar,Haryana,apmc,39.0,MANDI027,normalized,0,0,0,0,track3_mandi_master.csv,30,0
+MANDI017,Parbhani Market,,Punjab,PRIVATE,8.0,MANDI017,normalized,1,0,0,0,track3_mandi_master.csv,31,0
+MANDI025,Dindigul APMC,karnal,Haryana,APMC,,MANDI025,normalized,0,0,0,1,track3_mandi_master.csv,32,0
+MANDI056,Bilaspur Mandi,Bareilly,Uttar Pradesh,Private,28.0,MANDI056,normalized,0,0,0,0,track3_mandi_master.csv,33,0
+MANDI012,Gaya Grain Market,Patiala,Punjab,,48.0,MANDI012,normalized,0,0,1,0,track3_mandi_master.csv,34,0
+MANDI033,South Dumdum Grain Market,AMBALA,Haryana,apmc,31.0,MANDI033,normalized,0,0,0,0,track3_mandi_master.csv,35,0
+MANDI054,Nangloi Jat Grain Market,Saharanpur,,Direct,45.0,MANDI054,normalized,0,1,0,0,track3_mandi_master.csv,36,0
+MANDI042,Erode Mandi,Fatehabad,Haryana,PRIVATE,38.0,MANDI042,normalized,0,0,0,0,track3_mandi_master.csv,37,0
+MANDI038,Jalandhar Mandi,Kurukshetra,Haryana,Private,36.0,MANDI038,normalized,0,0,0,0,track3_mandi_master.csv,38,0
+MANDI030,Patiala APMC,Sirsa,,,19.0,MANDI030,normalized,0,1,1,0,track3_mandi_master.csv,39,0
+MANDI045,Farrukhabad Mandi,Meerut,Uttar Pradesh,PRIVATE,25.0,MANDI045,normalized,0,0,0,0,track3_mandi_master.csv,40,0
+MANDI002,Solapur Mandi,Ludhiana,,APMC,37.0,MANDI002,normalized,0,1,0,0,track3_mandi_master.csv,41,0
+MANDI022,Eluru APMC,Karnal,Haryana,,45.0,MANDI022,normalized,0,0,1,0,track3_mandi_master.csv,42,0
+MANDI003,Vijayawada Mandi,Ludhiana,Punjab,,19.0,MANDI003,normalized,0,0,1,0,track3_mandi_master.csv,43,0
+MANDI048,Chittoor Mandi,muzaffarnagar,Uttar Pradesh,Direct,27.0,MANDI048,normalized,0,0,0,0,track3_mandi_master.csv,44,0
+MANDI040,Jodhpur Market,Fatehabad,Haryana,Direct,40.0,MANDI040,normalized,0,0,0,0,track3_mandi_master.csv,45,0
+MANDI036,Mysore Grain Market,KURUKSHETRA,Haryana,apmc,9.0,MANDI036,normalized,0,0,0,0,track3_mandi_master.csv,46,0
+MANDI024,Jaipur Mandi,Karnal,Haryana,APMC,24.0,MANDI024,normalized,0,0,0,0,track3_mandi_master.csv,47,0
+MANDI050,Durg Market,Muzaffarnagar,Uttar Pradesh,,47.0,MANDI050,normalized,0,0,1,0,track3_mandi_master.csv,48,0
+MANDI011,Arrah Mandi,Patiala,Punjab,,34.0,MANDI011,normalized,0,0,1,0,track3_mandi_master.csv,49,0
+MANDI023,Panihati APMC,KARNAL,Haryana,PRIVATE,38.0,MANDI023,normalized,0,0,0,0,track3_mandi_master.csv,50,0
+MANDI019,Karimnagar Grain Market,Moga,Punjab,PRIVATE,40.0,MANDI019,normalized,0,0,0,0,track3_mandi_master.csv,51,0
+MANDI021,Guna Mandi,Ferozepur,Punjab,APMC,21.0,MANDI021,normalized,0,0,0,0,track3_mandi_master.csv,53,0
+MANDI008,Bijapur Market,Amritsar,Punjab,APMC,23.0,MANDI008,normalized,0,0,0,0,track3_mandi_master.csv,54,0
+MANDI043,Danapur Mandi,Agra,Uttar Pradesh,Private,,MANDI043,normalized,0,0,0,1,track3_mandi_master.csv,55,0
+MANDI015,Amravati Grain Market,Bathinda,Punjab,apmc,13.0,MANDI015,normalized,0,0,0,0,track3_mandi_master.csv,56,0
+MANDI029,Asansol Grain Market,SIRSA,Haryana,Direct,,MANDI029,normalized,0,0,0,1,track3_mandi_master.csv,57,0
+MANDI052,Kakinada APMC,Saharanpur,Uttar Pradesh,,48.0,MANDI052,normalized,0,0,1,0,track3_mandi_master.csv,58,0
+MANDI039,Anand Grain Market,,Haryana,APMC,5.0,MANDI039,normalized,1,0,0,0,track3_mandi_master.csv,59,0
