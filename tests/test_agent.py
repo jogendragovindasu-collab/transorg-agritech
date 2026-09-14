@@ -197,6 +197,31 @@ class TestAgentCore(unittest.TestCase):
         with self.assertRaises(Exception):
             validate_result(bad_payload)
 
+    def test_13_cotton_price_specific(self):
+        """Regression test: 'whats the price of cotton' returns Cotton-specific result."""
+        q = "whats the price of cotton"
+        result = self.agent.run(q)
+        # Should route to PRICE_MSP
+        self.assertEqual(result["routed"]["intent"], "PRICE_MSP")
+        payload = result.get("payload", {})
+        # Summary should mention Cotton specifically
+        summary = payload.get("summary", "")
+        self.assertIn("Cotton:", summary)
+        # Should not be the 6-crop aggregate summary
+        agg_summary = "Average modal price: Rs. 3,803; Average MSP: Rs. 3,720; Average price gap above MSP: Rs. 84."
+        self.assertNotEqual(summary, agg_summary)
+        # Source should indicate filtered for Cotton
+        source = payload.get("source", "")
+        self.assertIn("filtered for Cotton", source)
+        # Metrics should be present
+        self.assertIn("metrics", payload)
+        self.assertIsInstance(payload.get("metrics"), dict)
+        # Should reference analytics/price_msp_analysis.csv (not crop_kpis.csv for this price query)
+        self.assertIn("analytics/price_msp_analysis.csv", source)
+        # Explanation should reference analytics
+        explanation = result.get("explanation", "")
+        self.assertIn("analytics", explanation.lower())
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

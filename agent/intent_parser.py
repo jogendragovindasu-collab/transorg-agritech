@@ -46,6 +46,8 @@ KEYWORD_MAP = {
     "rice": "CROP_ANALYSIS",
     "sugarcane": "CROP_ANALYSIS",
     "mustard": "CROP_ANALYSIS",
+    "price": "PRICE_MSP",
+    "price of": "PRICE_MSP",
     "msp": "PRICE_MSP",
     "price vs msp": "PRICE_MSP",
     "logistics": "LOGISTICS",
@@ -111,12 +113,22 @@ def parse_intent(query: str) -> dict:
     if entities["mandi"]:
         entities["mandi"] = list(dict.fromkeys(entities["mandi"]))
 
-    # Intent classification — keyword rules first, then fallback
+    # Prioritize price/MSP when price-related keywords appear (even with crop names present)
     matched_intent = None
-    for kw, intent in KEYWORD_MAP.items():
-        if kw in query_lower:
-            matched_intent = intent
-            break
+    price_indicators = ["price", "price of", "msp"]
+    if any(ind in query_lower for ind in price_indicators):
+        # If price keyword is present, prefer PRICE_MSP (unless risk/crash keywords dominate)
+        risk_indicators = ["price risk", "below msp", "crash"]
+        has_risk_only = any(ind in query_lower for ind in risk_indicators)
+        if not has_risk_only:
+            matched_intent = "PRICE_MSP"
+
+    # Intent classification — keyword rules first, then fallback
+    if matched_intent is None:
+        for kw, intent in KEYWORD_MAP.items():
+            if kw in query_lower:
+                matched_intent = intent
+                break
 
     if matched_intent is None:
         # Try LLM-enhanced parsing if available (optional); always safe fallback

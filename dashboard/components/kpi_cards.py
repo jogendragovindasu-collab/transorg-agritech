@@ -37,7 +37,7 @@ def render_hero_kpis(kpis):
         render_kpi_card(
             title="Total Arrivals",
             value=f"{kpis['total_arrivals_qtl']:,.0f} Qtl",
-            subtitle="1.30M quintals tracked",
+            subtitle="Analyzed arrival volume",
             icon="🌾"
         )
         render_kpi_card(
