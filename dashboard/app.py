@@ -360,6 +360,13 @@ div[data-testid="stPlotlyChart"] {
 </style>
 """, unsafe_allow_html=True)
 
+# Ensure repo root is on Python path for reliable imports on Streamlit Cloud
+import sys
+from pathlib import Path
+_RepoRoot = Path(__file__).resolve().parent.parent
+if str(_RepoRoot) not in sys.path:
+    sys.path.insert(0, str(_RepoRoot))
+
 # Import dashboard utilities
 from dashboard.utils.data_loader import (
     get_overall_kpis,
