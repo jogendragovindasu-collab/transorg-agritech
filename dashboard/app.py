@@ -19,7 +19,7 @@ st.set_page_config(
     page_title="TransOrg AgriTech — Supply Chain Intelligence",
     page_icon="🌾",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="collapsed"
 )
 
 # ============================================
@@ -392,60 +392,22 @@ from dashboard.components.charts import (
 from dashboard.components.agent_interface import render_agent_interface
 
 # ============================================
-# HEADER
+# HEADER — full width, no sidebar content, GitHub link top-right
 # ============================================
-st.title("🌾 TransOrg AgentIQ — Supply Chain Intelligence")
-st.subheader("Track 3: AgriTech — Mandi-to-Market Analysis Dashboard")
+header_cols = st.columns([6, 1])
+with header_cols[0]:
+    st.title("🌾 TransOrg AgentIQ — Supply Chain Intelligence")
+    st.subheader("Track 3: AgriTech — Mandi-to-Market Analysis Dashboard")
+with header_cols[1]:
+    st.markdown(
+        '<a href="https://github.com/jogendragovindasu-collab" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;padding:0.35rem 0.6rem;background:#172033;color:#F7F9FC;border-radius:6px;font-size:0.85rem;font-weight:600;white-space:nowrap;margin-top:0.35rem;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#F7F9FC" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.37.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016 0c2.29-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.6-2.8 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</a>',
+        unsafe_allow_html=True
+    )
 
+# Sidebar removed from main dashboard; agent tab retains its interface
 # Top-level navigation using tabs
+# ============================================
 tab_dashboard, tab_agent = st.tabs(["📊 Executive Dashboard", "🤖 Agri Intelligence Agent"])
-
-# Sidebar with navigation info
-with st.sidebar:
-    st.markdown("### 📊 Analytics Consumption")
-    st.markdown("""
-    **Data Flow:**
-    `data/cleaned/` → `analytics/` → `dashboard/`
-    `analytics/` → `agent/` → `agent UI`
-
-    **Technology:** Streamlit + Plotly + AgentCore
-
-    **Design Principles:**
-    - Business-first metrics
-    - Statistical rigor
-    - Transparent limitations
-    - Actionable insights
-    - Deterministic AI grounding
-    """)
-
-    st.divider()
-
-    # Show reproduction command
-    st.markdown("**Reproduce Analytics:**")
-    st.code("python scripts/run_analytics.py")
-    st.markdown("**Reproduce Cleaning:**")
-    st.code("python scripts/run_cleaning.py")
-    st.markdown("**Run Agent Tests:**")
-    st.code("python -m unittest tests/test_agent.py")
-
-    st.divider()
-
-    # Methodology toggle
-    with st.expander("📋 Methodology & Limitations", expanded=False):
-        st.markdown("""
-        **Data Sources:**
-        - 5 cleaned datasets (master, arrivals, price, transport, weather)
-        - All analytics derived from validated `analytics/` outputs
-
-        **Key Design Decisions:**
-        - No raw data re-implemented in dashboard
-        - No unsupported weather-to-mandi claims
-        - Transport "long transit" = statistical p90 (>21.7h)
-        - Price crash = `modal_price < msp`
-        - Unresolved data (crops, quantities) excluded transparently
-        - Agent responses grounded 100% in analytics CSVs
-        """)
-
 # ============================================
 # TAB 1: EXECUTIVE DASHBOARD
 # ============================================
