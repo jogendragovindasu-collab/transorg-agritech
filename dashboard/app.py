@@ -27,210 +27,335 @@ st.set_page_config(
 # ============================================
 st.markdown("""
 <style>
-/* AgriTech Professional Palette */
+/* Agri Operations Command Center - Dark Navy Theme */
 :root {
-  --ag-deep-green: #1a4d2e;
-  --ag-green: #2d5a3d;
-  --ag-light-green: #e8f5e9;
-  --ag-warm-bg: #fdf8f3;
-  --ag-card-bg: #ffffff;
-  --ag-text-dark: #1a1a2e;
-  --ag-text-secondary: #556b5e;
-  --ag-border: #dde5db;
+  --ag-bg-dark: #0B1420;
+  --ag-bg-card: #142231;
+  --ag-bg-card-alt: #1E2F42;
+  --ag-text-primary: #F4F7FA;
+  --ag-text-secondary: #91A4B7;
+  --ag-text-muted: #6B8094;
+  --ag-emerald: #22C98A;
+  --ag-warning: #F5B84B;
+  --ag-danger: #F45B69;
+  --ag-blue: #5B8DEF;
+  --ag-border: #26384A;
+  --ag-border-light: #34495E;
+  --ag-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  --ag-shadow-hover: 0 4px 16px rgba(0,0,0,0.4);
+  --ag-border-radius: 8px;
+  --ag-transition: 0.2s ease;
 }
 
-/* Global styling */
+/* Main workspace - White/light */
 .stApp {
-  background-color: var(--ag-warm-bg);
-  color: var(--ag-text-dark);
+  background-color: #F7F9FC;
+  color: #172033;
 }
 
-/* Header prominence */
+/* Main content container white */
+.block-container {
+  background-color: #F7F9FC;
+}
+
+/* Global text colors for white workspace */
+.stMarkdown, .stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
+  color: #172033;
+}
+
+/* Override Streamlit's default white backgrounds */
+.stApp > header {
+  background-color: transparent;
+}
+
+.stApp > div[data-testid="stToolbar"] {
+  background-color: transparent;
+}
+
+.stApp > div[data-testid="stDecoration"] {
+  background-color: transparent;
+}
+
+/* Hide Streamlit branding and menu */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+.stDeployButton {display:none;}
+header {visibility: hidden;}
+
+/* Header prominence - Compact */
 .stMarkdown h1 {
-  color: var(--ag-deep-green);
+  color: var(--ag-emerald);
   font-weight: 700;
-  font-size: 2.2rem;
-  letter-spacing: -0.02em;
-  border-bottom: 3px solid var(--ag-green);
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  letter-spacing: -0.01em;
+  border-bottom: 2px solid var(--ag-emerald);
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.8rem;
+  margin-top: 0.5rem;
 }
 
 .stMarkdown h2 {
-  color: var(--ag-deep-green);
+  color: var(--ag-emerald);
   font-weight: 600;
-  font-size: 1.5rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--ag-border);
 }
 
 .stMarkdown h3 {
-  color: var(--ag-green);
+  color: var(--ag-emerald-light);
   font-weight: 600;
-  font-size: 1.2rem;
-  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  margin-top: 1.2rem;
+  margin-bottom: 0.6rem;
 }
 
-/* Sidebar polish */
+/* Sidebar polish - Dark and compact */
 section[data-testid="stSidebar"] > div:first-child {
-  background: linear-gradient(180deg, #f4f7f2 0%, #eaece7 100%);
-  padding: 1.5rem 1rem;
+  background: linear-gradient(180deg, var(--ag-bg-card) 0%, var(--ag-bg-card-alt) 100%);
+  padding: 1rem;
+  border-right: 1px solid var(--ag-border);
 }
 
 section[data-testid="stSidebar"] .stMarkdown h3 {
-  color: var(--ag-deep-green);
-  font-size: 1.1rem;
+  color: var(--ag-emerald);
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
 }
 
-/* Tab styling */
+section[data-testid="stSidebar"] .stMarkdown,
+section[data-testid="stSidebar"] .stCaption,
+section[data-testid="stSidebar"] .stCode {
+  color: var(--ag-text-secondary);
+  font-size: 0.85rem;
+}
+
+/* Tab styling - Minimal */
 .stTabs [data-baseweb="tab-list"] {
-  gap: 0.5rem;
+  gap: 0.25rem;
+  background-color: var(--ag-bg-card);
+  border-radius: var(--ag-border-radius);
+  padding: 0.25rem;
 }
 
 .stTabs [data-baseweb="tab"] {
+  background-color: transparent;
+  border-radius: 6px;
   font-weight: 600;
-  font-size: 1rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px 8px 0 0;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.75rem;
+  transition: var(--ag-transition);
+  color: var(--ag-text-secondary);
+  border: 1px solid transparent;
 }
 
 .stTabs [aria-selected="true"] {
-  background-color: var(--ag-light-green);
-  color: var(--ag-deep-green);
+  background-color: var(--ag-emerald);
+  color: white;
+  border-color: var(--ag-emerald);
 }
 
-/* Metric cards */
+/* Metric cards - White cards */
 div[data-testid="stMetric"] {
-  background: var(--ag-card-bg);
-  border: 1px solid var(--ag-border);
-  border-radius: 12px;
-  padding: 1rem 1.25rem;
-  box-shadow: 0 2px 8px rgba(26, 77, 46, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 0.75rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  transition: 0.2s ease;
+  margin-bottom: 0.5rem;
 }
 
 div[data-testid="stMetric"]:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(26, 77, 46, 0.12);
+  transform: translateY(-1px);
+  box-shadow: var(--ag-shadow-hover);
+  border-color: var(--ag-emerald-light);
 }
 
 div[data-testid="stMetric"] label {
-  color: var(--ag-text-secondary);
-  font-size: 0.9rem;
+  color: #64748B;
+  font-size: 0.8rem;
   font-weight: 500;
 }
 
 div[data-testid="stMetric"] [data-testid="stMetricValue"] {
-  color: var(--ag-deep-green);
-  font-size: 1.8rem;
+  color: #172033;
+  font-size: 1.4rem;
   font-weight: 700;
+  letter-spacing: -0.005em;
 }
 
-/* Chart container polish */
+/* Chart container styling: white light card surface for visible charts */
 div[data-testid="stPlotlyChart"] {
-  background: var(--ag-card-bg);
-  border: 1px solid var(--ag-border);
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 2px 8px rgba(26, 77, 46, 0.06);
+  background: #FFFFFF;
+  border: 1px solid #26384A;
+  border-radius: 8px;
+  padding: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  margin-bottom: 1rem;
 }
 
-/* Data table polish */
+/* Data table polish - Dark */
 div[data-testid="stDataFrame"] {
-  border-radius: 8px;
+  background: var(--ag-bg-card);
+  border-radius: var(--ag-border-radius);
   overflow: hidden;
-  box-shadow: 0 1px 4px rgba(26, 77, 46, 0.08);
+  box-shadow: var(--ag-shadow);
+  border: 1px solid var(--ag-border);
 }
 
-/* Info/caption styling */
+/* Info/caption styling - Dark */
 .stMarkdown .stAlert {
-  border-radius: 8px;
-  border-left: 4px solid var(--ag-green);
+  border-radius: var(--ag-border-radius);
+  border-left: 3px solid var(--ag-emerald);
+  background-color: rgba(0, 107, 61, 0.1);
 }
 
 .stCaption {
-  color: var(--ag-text-secondary);
-  font-size: 0.85rem;
-  line-height: 1.4;
+  color: var(--ag-text-muted);
+  font-size: 0.8rem;
+  line-height: 1.3;
 }
 
-/* Code blocks */
+/* Code blocks - Dark */
 code {
-  background-color: #f5f0eb;
-  color: var(--ag-deep-green);
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
+  background-color: var(--ag-bg-card-alt);
+  color: var(--ag-emerald-light);
+  padding: 0.15rem 0.3rem;
+  border-radius: 3px;
   font-family: 'Courier New', monospace;
+  font-size: 0.9em;
 }
 
-/* Expander styling */
+/* Expander styling - White cards */
 div[data-testid="stExpander"] {
-  background: var(--ag-card-bg);
-  border: 1px solid var(--ag-border);
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
   border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(26, 77, 46, 0.06);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  margin-bottom: 0.75rem;
 }
 
 div[data-testid="stExpander"] summary {
-  color: var(--ag-deep-green);
+  color: var(--ag-emerald);
   font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.6rem;
 }
 
 /* Divider styling */
 hr {
   border-color: var(--ag-border);
-  margin: 2rem 0;
+  margin: 1.5rem 0;
+  opacity: 0.5;
 }
 
-/* Button styling */
+/* Button styling - Emerald, lighter/subtler */
 .stButton > button {
-  background: linear-gradient(135deg, var(--ag-deep-green), var(--ag-green));
+  background: linear-gradient(135deg, #1a4a2a, var(--ag-emerald));
   color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 0.5rem 1.5rem;
-  font-weight: 600;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--ag-border-light);
+  border-radius: 6px;
+  padding: 0.4rem 1rem;
+  font-weight: 500;
+  transition: var(--ag-transition);
+  box-shadow: none;
 }
 
 .stButton > button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(26, 77, 46, 0.3);
+  box-shadow: var(--ag-shadow-hover);
+  background: linear-gradient(135deg, var(--ag-emerald), var(--ag-emerald-light));
 }
 
 .stButton > button:focus {
-  outline: 2px solid var(--ag-green);
-  outline-offset: 2px;
+  outline: 2px solid var(--ag-emerald-light);
+  outline-offset: 1px;
 }
 
-/* Input fields */
+/* Input fields - Dark */
 .stTextInput > div > div > input {
+  background-color: var(--ag-bg-card-alt);
   border: 1px solid var(--ag-border);
-  border-radius: 6px;
-  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  color: var(--ag-text-primary);
+  padding: 0.4rem 0.6rem;
 }
 
 .stTextInput > div > div > input:focus {
-  border-color: var(--ag-green);
-  outline: 2px solid var(--ag-light-green);
-  outline-offset: 0;
+  border-color: var(--ag-emerald);
+  box-shadow: 0 0 0 1px var(--ag-emerald);
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .stMarkdown h1 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 
   .stMarkdown h2 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 
   div[data-testid="stMetric"] [data-testid="stMetricValue"] {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
+
+  .stTabs [data-baseweb="tab"] {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Dense layout - Reduce default margins and paddings */
+.block-container {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.element-container {
+  margin-bottom: 0.75rem;
+}
+
+/* Remove extra spacing from Streamlit */
+div[data-testid="stVerticalBlock"] > div[style*="flex-direction: column;"] {
+  gap: 0.5rem;
+}
+
+/* Chart container styling: light card surface to hold Plotly white chart */
+div[data-testid="stPlotlyChart"] {
+  background: #FFFFFF;
+  border: 1px solid #26384A;
+  border-radius: 8px;
+  padding: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  margin-bottom: 1rem;
+}
+
+/* Table styling */
+.stDataFrame {
+  background-color: var(--ag-bg-card) !important;
+}
+
+.stDataFrame [data-testid="stTable"] {
+  background-color: var(--ag-bg-card) !important;
+}
+
+.stDataFrame [data-testid="stTable"] td,
+.stDataFrame [data-testid="stTable"] th {
+  color: var(--ag-text-primary) !important;
+  background-color: var(--ag-bg-card) !important;
+  border-color: var(--ag-border) !important;
+}
+
+.stDataFrame [data-testid="stTable"] th {
+  background-color: var(--ag-bg-card-alt) !important;
+  color: var(--ag-emerald-light) !important;
 }
 </style>
 """, unsafe_allow_html=True)

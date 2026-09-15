@@ -19,24 +19,27 @@ def render_agent_interface():
     # Header styling
     st.markdown("""
     <style>
-    /* Agent interface prominence */
+    /* Agent interface prominence - Dark theme */
     .ag-agent-header {
-        background: linear-gradient(135deg, #1a4d2e 0%, #2d5a3d 100%);
+        background: linear-gradient(135deg, var(--ag-emerald-dark) 0%, var(--ag-emerald) 100%);
         color: white;
-        padding: 1.5rem;
-        border-radius: 16px;
-        margin-bottom: 1.5rem;
-        box-shadow: 0 6px 20px rgba(26,77,46,0.15);
+        padding: 1rem;
+        border-radius: var(--ag-border-radius);
+        margin-bottom: 1rem;
+        box-shadow: var(--ag-shadow);
+        border: 1px solid var(--ag-border-light);
     }
     .ag-agent-header h2 {
         color: white !important;
         margin: 0;
         font-weight: 700;
-        letter-spacing: -0.02em;
+        font-size: 1.3rem;
+        letter-spacing: -0.01em;
     }
     .ag-agent-header p {
-        color: rgba(255,255,255,0.85) !important;
-        margin: 0.5rem 0 0 0;
+        color: rgba(255,255,255,0.8) !important;
+        margin: 0.3rem 0 0 0;
+        font-size: 0.9rem;
     }
     </style>
     """, unsafe_allow_html=True)
